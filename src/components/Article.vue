@@ -3,12 +3,29 @@
     <div class="header">
       <router-link :to="{ name: 'Articles'}"><div class="circle">&larr;</div></router-link>
     </div>
+    <div v-for="article in articles" :key="article.id">
+      <div v-if="articleId == article.id ">
+        <h1 >{{ article.title.rendered}}</h1>
+        <div class='content' v-html="article.content.rendered"></div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'Article'
+  name: 'Article',
+  articleId: '',
+  mounted () {
+  this.$store.dispatch('getArticles')
+    if (localStorage.articleId) {
+      this.articleId = localStorage.articleId;
+    }
+  },
+  computed: mapState([
+    'articles'
+  ])  
 }
 </script>
 
@@ -25,12 +42,15 @@ export default {
   border-radius: 50%;
   font-size: 50px;
   color: #fff;
-  line-height: 50px;
+  line-height: 60%;
   text-align: center;
   background: #000;
   text-decoration: none
 }
 a {
   text-decoration: none;
+}
+.content {
+  margin-bottom: 50px;
 }
 </style>

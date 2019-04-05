@@ -22,7 +22,12 @@ export default {
   },
   computed: mapState([
     'articles'
-  ])
+  ]),
+  methods: {
+    getArticleId: function(event) {
+        localStorage.articleId = event.currentTarget.id
+    }
+  }
 }
 </script>
 

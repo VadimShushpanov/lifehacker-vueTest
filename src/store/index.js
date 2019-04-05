@@ -6,7 +6,8 @@ Vue.use(Vuex, axios)
 
 export default new Vuex.Store({
   state: {
-    articles: []
+    articles: [],
+    articleId: ''
   },
   actions: {
     getArticles ({ commit }) {
