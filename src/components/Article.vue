@@ -18,14 +18,14 @@ export default {
   name: 'Article',
   articleId: '',
   mounted () {
-  this.$store.dispatch('getArticles')
+    this.$store.dispatch('getArticles')
     if (localStorage.articleId) {
-      this.articleId = localStorage.articleId;
+      this.articleId = localStorage.articleId
     }
   },
   computed: mapState([
     'articles'
-  ])  
+  ])
 }
 </script>
 
@@ -42,10 +42,13 @@ export default {
   border-radius: 50%;
   font-size: 50px;
   color: #fff;
-  line-height: 60%;
+  line-height: 70%;
   text-align: center;
   background: #000;
   text-decoration: none
+}
+@-moz-document url-prefix() {
+ .circle {line-height: 50px !important}
 }
 a {
   text-decoration: none;

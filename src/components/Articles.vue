@@ -24,8 +24,8 @@ export default {
     'articles'
   ]),
   methods: {
-    getArticleId: function(event) {
-        localStorage.articleId = event.currentTarget.id
+    getArticleId: function (event) {
+      localStorage.articleId = event.currentTarget.id
     }
   }
 }
