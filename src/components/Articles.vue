@@ -2,10 +2,12 @@
   <div class="articles">
     <ul >
       <ol v-for="article in articles" :key="article.id">
+        <router-link :to="{ name: 'Article'}" target='_blank'  v-on:click.native="getArticleId"  :id="article.id">
           <div class="article" >
             <img class='circle' :src="article.cat_cover.sizes.mobile">
             <div class="article-name">{{ article.title.rendered}}</div>
           </div>
+        </router-link>
       </ol>
     </ul>
   </div>
@@ -49,5 +51,9 @@ ol {
 }
 .article-name {
   margin-left: 10px;
+}
+.articles {
+  width: auto;
+  max-width: 800px;
 }
 </style>
